@@ -76,15 +76,20 @@
         //deposit event handler
         const depositBtn = document.getElementById("addDeposit");
         depositBtn.addEventListener("click", function(){
-            const depositNumber = getInputNumber("getDepositAmount")
+            const depositNumber = getInputNumber("getDepositAmount");
 
-            updateSpanText("currentDeposit", depositNumber);
-            updateSpanText("currentBalance", depositNumber);
+            if(depositNumber < 0){
+                alert("Deposit can not be negative.");
+            }
+            else{
+                updateSpanText("currentDeposit", depositNumber);
+                updateSpanText("currentBalance", depositNumber);
+                document.getElementById("getDepositAmount").value = "";
+
+            }
 
 
-
-
-            document.getElementById("getDepositAmount").value = "";
+            
 
         })
 
